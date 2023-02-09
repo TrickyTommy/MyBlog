@@ -9,7 +9,7 @@
                     {{ $post->tittle }}
                 </a>
             </h2>
-            <h5>{{ $post->author }} in <a href="/categories/{{ $post->category->slug }}"
+            <h5>By : {{ $post->user->name }} in <a href="/categories/{{ $post->category->slug }}"
                     class="text-decoration-none">{{ $post->category->name }}</a></h5>
             <p>{{ $post->excerpt }}</p>
 

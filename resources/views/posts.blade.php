@@ -5,11 +5,11 @@
     @foreach ($posts as $post)
         <article class="mb-5 border-bottom pb-4 ">
             <h2>
-                <a href="/posts/{{ $post->slug }}" class="text-decoration-none">
+                <a href="/posts/{{ $post->slug }}" >
                     {{ $post->tittle }}
                 </a>
             </h2>
-            <h5>By : {{ $post->user->name }} in <a href="/categories/{{ $post->category->slug }}"
+            <h5>By : <a href="#" class="text-decoration-none">{{ $post->user->name }}</a> in <a href="/categories/{{ $post->category->slug }}"
                     class="text-decoration-none">{{ $post->category->name }}</a></h5>
             <p>{{ $post->excerpt }}</p>
 

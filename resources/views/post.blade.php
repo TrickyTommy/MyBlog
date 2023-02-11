@@ -10,6 +10,6 @@
   {!! $post->body !!}
 </article>
 
-<a href="/blog"> Back to Posts</a>
+<a href="/blog" class="d-block mt-3"> Back to Posts</a>
 
 @endsection

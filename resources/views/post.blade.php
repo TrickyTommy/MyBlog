@@ -5,7 +5,7 @@
 <article>
 
     <h2>{{ $post->tittle }}</h2>
-    <h5>{{ $post->user->name }} in <a href="/categories/{{ $post->category->slug }}">{{ $post->category->name }}</a></h5>
+    <h5><a href="/authors/{{ $post->author->username }}">{{ $post->author->name }}</a> in <a href="/categories/{{ $post->category->slug }}">{{ $post->category->name }}</a></h5>
   {{-- {{ $post->body }} --}}
   {!! $post->body !!}
 </article>

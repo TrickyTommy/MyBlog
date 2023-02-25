@@ -9,8 +9,7 @@
 @else
 <h1 class="mb-3 text-center">{{ $tittle }}</h1>
 @endif --}}
-
-
+<h1 class="mb-3 text-center">{{ $tittle }}</h1>
 
 <div class="row justify-content-center mb-3">
     <div class="col-md-6">

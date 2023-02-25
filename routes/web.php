@@ -72,22 +72,23 @@ Route::get('/categories', function () {
     ]);
 });
 
+//tidak kepakai di pindah ke model post
 
-Route::get('/categories/{category:slug}', function (Category $category) {
-    return view('posts', [
-        'tittle' => "Post By Category : $category->name",
-        'active' => 'categories',
+// Route::get('/categories/{category:slug}', function (Category $category) {
+//     return view('posts', [
+//         'tittle' => "Post By Category : $category->name",
+//         'active' => 'categories',
 
-        //eager laze load for performance
-        'posts' => $category->posts->load('category', 'author')
-    ]);
-});
+//         //eager laze load for performance
+//         'posts' => $category->posts->load('category', 'author')
+//     ]);
+// });
 
-Route::get('/authors/{author:username}', function (User $author) {
-    return view('posts', [
-        'tittle' => "Post By Author : $author->name ",
-        'active' => 'categories',
-        'posts' => $author->posts->load('category', 'author')
+// Route::get('/authors/{author:username}', function (User $author) {
+//     return view('posts', [
+//         'tittle' => "Post By Author : $author->name ",
+//         'active' => 'categories',
+//         'posts' => $author->posts->load('category', 'author')
 
-    ]);
-});
+//     ]);
+// });

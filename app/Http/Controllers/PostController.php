@@ -17,11 +17,11 @@ class PostController extends Controller
         $tittle= '';
         if(request('category')){
             $category = Category::firstWhere('slug', request('category'));
-            $tittle = 'in' . $category;
+            $tittle = ' in ' . $category->name;
         }
         if(request('author')){
-            $author = User::firstWhere('slug', request('author'));
-            $tittle = 'by' . $author;
+            $author = User::firstWhere('username', request('author'));
+            $tittle = ' by ' . $author->name;
         }
 
 

@@ -24,7 +24,7 @@ class Post extends Model
         //     return $query->where('tittle','like','%' . $filters['search'] . '%')
         //     ->orWhere('body', 'like', '%' .$filters['search'] . '%');
         // }
-
+        //pengganti route
         $query->when($filters['search'] ?? false, function($query, $search) {
             return $query->where('tittle','like','%' . $search . '%')
                         ->orWhere('body', 'like', '%' .$search . '%');

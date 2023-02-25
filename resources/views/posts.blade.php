@@ -90,4 +90,8 @@
 @else
 <p class="text-center fs-4">No post found.</p>
 @endif
+{{-- tambah pagination --}}
+<div class="d-flex justify-content-center">
+    {{ $posts->links() }}
+</div>
 @endsection

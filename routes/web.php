@@ -18,14 +18,16 @@ use App\Http\Controllers\PostController;
 */
 
 Route::get('/', function () {
-    return view('home',[
-        "tittle" => "Home"
+    return view('home', [
+        "tittle" => "Home",
+        "active" => "home"
     ]);
 });
 
 Route::get('/about', function () {
-    return view('about',[
+    return view('about', [
         "tittle" => "About",
+        "active" => 'about',
         "name" => "Tommy Ferdian Hadimarta",
         "email" => "tricktommy4@gmail.com",
         "image" => "tommy.jpg"
@@ -39,20 +41,20 @@ Route::get('/about', function () {
 //         "posts" => Post::all()
 //     ]);
 // });
-Route::get('/blog', [PostController::class,'index']);
+Route::get('/posts', [PostController::class, 'index']);
 
 //halaman singel post
 
 // Route::get('posts/{slug}', function($slug) {
 
 
-    // $new_post = [];
+// $new_post = [];
 
-    // foreach($blog_posts as $post) {
-    //     if($post["slug"] === $slug) {
-    //         $new_post = $post;
-    //     }
-    // }
+// foreach($blog_posts as $post) {
+//     if($post["slug"] === $slug) {
+//         $new_post = $post;
+//     }
+// }
 
 //     return view('post',[
 //         "tittle" => "Single Post",
@@ -60,28 +62,32 @@ Route::get('/blog', [PostController::class,'index']);
 //     ]);
 // });
 
-Route::get('/posts/{post:slug}',[PostController::class,'show']);
+Route::get('/posts/{post:slug}', [PostController::class, 'show']);
 
-Route::get('/categories', function(){
- return view('categories',[
-    'tittle' => 'Post Categories',
-    'categories' => Category::all()
- ]);
-});
-
-
-Route::get('/categories/{category:slug}', function(Category $category) {
-    return view('posts', [
-        'tittle' => "Post By Category : $category->name",
-        //eager laze load for performance
-        'posts' => $category->posts->load('category','author')
+Route::get('/categories', function () {
+    return view('categories', [
+        'tittle' => 'Post Categories',
+        'active' => 'categories',
+        'categories' => Category::all()
     ]);
 });
 
-Route::get('/authors/{author:username}', function(User $author) {
-    return view('posts',[
+
+Route::get('/categories/{category:slug}', function (Category $category) {
+    return view('posts', [
+        'tittle' => "Post By Category : $category->name",
+        'active' => 'categories',
+
+        //eager laze load for performance
+        'posts' => $category->posts->load('category', 'author')
+    ]);
+});
+
+Route::get('/authors/{author:username}', function (User $author) {
+    return view('posts', [
         'tittle' => "Post By Author : $author->name ",
-        'posts' => $author->posts->load('category','author')
+        'active' => 'categories',
+        'posts' => $author->posts->load('category', 'author')
 
     ]);
 });
